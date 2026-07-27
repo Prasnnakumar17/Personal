@@ -1,0 +1,854 @@
+1) AlphaNumericCheck
+Question:
+Given a string, separate and collect alphabets, digits, and special characters.
+
+Approach:
+- Iterate through each character.
+- Use character ranges to classify: letters (a-z/A-Z), digits (0-9), else special.
+- Append to respective StringBuilders and print them.
+
+Solution (Java):
+package InterviewPrep;
+
+public class AlphaNumericCheck {
+    public static void main(String[] args) {
+        String s = "abc1!k23@";
+        StringBuilder alphabates = new StringBuilder();
+        StringBuilder numbers = new StringBuilder();
+        StringBuilder splChars = new StringBuilder();
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+
+            if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+                alphabates.append(c);
+            } else if (c >= '0' && c <= '9') {
+                numbers.append(c);
+            } else {
+                splChars.append(c);
+            }
+        }
+
+        System.out.println("Alphabets: " + alphabates);
+        System.out.println("Numbers: " + numbers);
+        System.out.println("Special Characters: " + splChars);
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+2) AnagramCheck
+Question:
+Check if two strings are anagrams (contain the same characters with the same frequency).
+
+Approach:
+- If lengths differ, return false.
+- Split to character arrays, sort both, and compare element-wise.
+
+Solution (Java):
+package InterviewPrep;
+
+import java.util.Arrays;
+
+public class AnagramCheck {
+
+    public static boolean anagramCheck(String s, String s1){
+        if ( s.length() != s1.length() ){
+            return false;
+        }
+        String[] firstString = s.split("");
+        String[] secondString = s1.split("");
+        Arrays.sort(firstString);
+        Arrays.sort(secondString);
+        for (int i = 0 ; i < firstString.length; i++ ){
+            if (!(firstString[i].equals(secondString[i]))){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String s = "silent";
+        String s1 = "listen";
+        if (anagramCheck(s,s1)){
+            System.out.println("Anagrams");
+        } else {
+            System.out.println("Not Anagrams");
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+3) CountWordFrequency
+Question:
+Count frequency of each city string in an array.
+
+Approach:
+- Create a HashMap<String,Integer>.
+- Loop through array, map.put(city, map.getOrDefault(city, 1)) or increment.
+- Print the map.
+
+Solution (Java):
+package InterviewPrep;
+
+import java.util.*;
+
+public class CountWordFrequency {
+    public static void main(String[] args) {
+        String[] cities = {"delhi","kolkata","chennai","pune","kolkata","bangalore","delhi","delhi"};
+        countWordFrequency(cities);
+    }
+
+    public static void countWordFrequency(String[] cities) {
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        for( String city: cities ){
+            if(!(map.containsKey(city))){
+                map.put(city,1);
+            } else {
+                map.put( city, map.get(city) +1 );
+            }
+        }
+        System.out.println(map);
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+4) FirstNonRepeated
+Question:
+Find the first non-repeated character in a string.
+
+Approach:
+- Use LinkedHashMap<Character,Integer> to preserve insertion order.
+- Count occurrences, then iterate entries to find the first with value 1.
+
+Solution (Java):
+package InterviewPrep;
+import java.util.*;
+
+public class FirstNonRepeated {
+    public static void main(String[] args) {
+        String str = "Hello";
+        System.out.println(firstNonRepeatedCharacter(str));
+    }
+    public static Character firstNonRepeatedCharacter(String str ){
+        Map<Character, Integer> map = new LinkedHashMap<>();
+        for ( int i = 0; i < str.length(); i++ ){
+            if ( !map.containsKey(str.charAt(i))){
+                map.put(str.charAt(i),1);
+            } else{
+                map.put(str.charAt(i), map.get(str.charAt(i)) + 1);
+            }
+        }
+        for (Map.Entry<Character,Integer> entry : map.entrySet()){
+            if ( entry.getValue() == 1 ) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+5) LongestCommonPrefix
+Question:
+Find the longest common prefix among an array of strings.
+
+Approach:
+- Initialize prefix as the first word.
+- For each next word, shrink prefix until the word starts with prefix.
+- Return the final prefix.
+
+Solution (Java):
+package InterviewPrep;
+
+public class LongestCommonPrefix {
+    public static String longestCommonPrefix(String[] words) {
+        if ( words.length <= 1){
+            return "";
+        }
+        String prefix = words[0];
+        for ( int i = 1; i < words.length; i++ ) {
+            String checkingString;
+            if (words[i].length() > prefix.length()) {
+                checkingString = words[i];
+            } else {
+                checkingString = prefix;
+                prefix = words[i];
+            }
+            while (!checkingString.startsWith(prefix)){
+                prefix = prefix.substring(0,prefix.length()-1);
+            }
+        }
+        return prefix;
+    }
+
+    public static void main(String[] args) {
+        String[] words = {"flower","floo","flight"};
+        System.out.println(longestCommonPrefix(words));
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+6) PrintDuplicateChars
+Question:
+Print characters that appear more than once in a string.
+
+Approach:
+- Use HashMap<Character,Integer> to count occurrences.
+- Print keys with value >= 2.
+
+Solution (Java):
+package InterviewPrep;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class PrintDuplicateChars {
+    public static void main(String[] args) {
+        String s = "aabccdee";
+        Map<Character, Integer> map = new HashMap<>();
+        for ( int i = 0; i < s.length(); i ++){
+            if (!( map.containsKey(s.charAt(i)))){
+                map.put(s.charAt(i), 1);
+            } else {
+                map.put(s.charAt(i),map.get(s.charAt(i))+1);
+            }
+        }
+        for (Map.Entry<Character, Integer> entry : map.entrySet()){
+            if (entry.getValue() >= 2 ){
+                System.out.println(entry.getKey());
+            }
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+7) RemoveDuplicatesFromSentence
+Question:
+Count word frequencies in a sentence and list duplicates; also build a compact summary.
+
+Approach:
+- Use LinkedHashMap<String,Integer> to preserve order.
+- Split by spaces, update counts with getOrDefault.
+- Build summary as count+word; then print words with count > 1 as duplicates.
+
+Solution (Java):
+package InterviewPrep;
+
+import java.util.*;
+
+public class RemoveDuplicatesFromSentence {
+    public static void main(String[] args) {
+        String sentence = "Hello hi world Hello hi ";
+        Map<String,Integer> map = new LinkedHashMap<>();
+        StringBuilder newSentence = new StringBuilder();
+        for ( String s : sentence.split(" ")){
+           map.put(s, map.getOrDefault(s, 0)+1);
+        }
+        map.forEach((k,v) -> {
+            newSentence.append(v+""+k);
+        });
+        System.out.println(newSentence);
+        for (Map.Entry<String,Integer> entry : map.entrySet()){
+            if ( entry.getValue() > 1 ){
+                System.out.println("Duplicates: "+ entry.getKey());
+            }
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+9) ReverseOnlyNumbers
+Question:
+Reverse only those tokens in a sentence that are pure numbers (start and end with a digit).
+
+Approach:
+- Split the sentence by spaces.
+- If a token's first and last chars are digits, reverse the token.
+- If token starts with digit but ends with non-digit, trim last character (as in given logic).
+- Append tokens back into the result string.
+
+Solution (Java):
+package InterviewPrep;
+
+public class ReverseOnlyNumbers {
+    public static void main(String[] args) {
+        String str = "Hello 2018 How are you 213";
+        StringBuilder resultString = new StringBuilder();
+        for ( String s : str.split(" ")){
+            char Sch = s.charAt(0);
+            char Ech = s.charAt(s.length()-1);
+            int size = s.length()-1;
+            if ( Character.isDigit(Sch) && Character.isDigit(Ech) ){
+                s = reverse(s);
+            } else if ( Character.isDigit(Sch) && !Character.isDigit(Ech)) {
+                size--;
+                s = s.substring(size);
+            }
+            resultString.append(s +" ");
+        }
+        System.out.println(resultString);
+    }
+
+    static String reverse(String s){
+        StringBuilder reverseString = new StringBuilder(s);
+        return reverseString.reverse().toString();
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+10) ReverseSentence
+Question:
+Reverse the order of words in a sentence while handling extra spaces.
+
+Approach:
+- Split by space and iterate from the end.
+- Skip empty tokens and append words to a StringBuilder.
+
+Solution (Java):
+package InterviewPrep;
+
+public class ReverseSentence {
+    public static StringBuilder reverseSentence(String s){
+        StringBuilder reverseSentence = new StringBuilder("");
+        String[] str = s.split(" ");
+        for ( int i = str.length-1 ; i >=0 ; i--){
+            if (!(str[i].isEmpty())){
+                reverseSentence.append(str[i] +" ");
+            }
+        }
+        return reverseSentence;
+    }
+
+    public static void main(String[] args) {
+        String s = "I    am a      good  boy";
+        System.out.println(reverseSentence(s));
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+11) VowelsIndex (count unique vowels)
+Question:
+Count how many distinct vowels appear in each string.
+
+Approach:
+- Iterate over characters and put vowels in a HashMap (or Set).
+- Count unique vowel keys and print the count.
+
+Solution (Java):
+package InterviewPrep;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class VowelsIndex {
+    public static void vowelsIndex(String str){
+        Map<Character, Integer> map = new HashMap<>();
+        for ( int i = 0; i < str.length(); i++ ){
+            if ( str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i' || str.charAt(i) == 'o' || str.charAt(i) == 'u'){
+                map.putIfAbsent(str.charAt(i),0);
+            }
+        }
+        int count = 0;
+        for (Character c : map.keySet()){
+            count++;
+        }
+        System.out.println(count);
+    }
+
+    public static void main(String[] args) {
+        String[] str = {"bharate", "charen","prasnna"};
+        for ( String s: str) {
+            System.out.println(s +" String Indexes: ");
+            vowelsIndex(s);
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+12) PrintVowelsAndCount
+Question:
+Print vowels present in a word and their total count.
+
+Approach:
+- Keep a StringBuilder of vowels.
+- Check each character using indexOf; collect and count.
+
+Solution (Java):
+package StringBuilder;
+
+public class PrintVowelsAndCount {
+    public static void main(String[] args) {
+        String word = "Areitg";
+        StringBuilder vowels = new StringBuilder("aeiouAEIOU");
+        StringBuilder result = new StringBuilder();
+        int count = 0;
+        for (int i = 0; i < word.length(); i++){
+            if(vowels.indexOf(String.valueOf(word.charAt(i))) != -1){
+                result.append(String.valueOf(word.charAt(i)));
+                count++;
+            }
+        }
+        System.out.println(count+" "+result);
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+13) RemoveDuplicates (characters)
+Question:
+Remove duplicate characters from a string while preserving first occurrence order.
+
+Approach:
+- Use a StringBuilder to accumulate unique chars.
+- If indexOf(c) == -1, append c.
+
+Solution (Java):
+package StringBuilder;
+
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        String word = "WELCOME";
+        StringBuilder result = new StringBuilder();
+        for ( char c : word.toCharArray()){
+            if ( result.indexOf(String.valueOf(c)) == -1){
+                result.append(c);
+            }
+        }
+        System.out.println(result);
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+14) Palindrome
+Question:
+Check if a string is a palindrome.
+
+Approach:
+- Reverse using StringBuilder and compare to original.
+
+Solution (Java):
+package Strings;
+
+public class Palindrome {
+    public static void main(String[] args) {
+        String str = "madam";
+        System.out.println(isPalindrome(str));
+    }
+
+    private static boolean isPalindrome(String str) {
+        StringBuilder sb = new StringBuilder(str);
+        return sb.reverse().toString().equals(str);
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+15) LongestNonRepeatingCharacters (length)
+Question:
+Find the length of the longest substring without repeating characters (simplified approach).
+
+Approach:
+- Maintain a StringBuilder window of unique chars.
+- When a repeat occurs, update max length, reset the window to the current char (note: not optimal, but matches given logic).
+- Return the maximum length.
+
+Solution (Java):
+package com.Strings;
+
+public class LongestNonRepeatingCharacters {
+    public static void main(String[] args) {
+        String word = "pwwkew";
+        System.out.println(longestNonRepeatingCharacters(word));
+    }
+
+    private static int longestNonRepeatingCharacters(String word) {
+        StringBuilder sb = new StringBuilder();
+        int longestLength = 0;
+        for (int i = 0; i < word.length(); i++ ){
+            if (sb.indexOf(String.valueOf(word.charAt(i))) == -1){
+                sb.append(word.charAt(i));
+            } else {
+                if (sb.length() > longestLength){
+                    longestLength = sb.length();
+                }
+                sb.delete(0,sb.length());
+                sb.append(word.charAt(i));
+            }
+        }
+        if (sb.length() > longestLength){
+            longestLength = sb.length();
+        }
+        return longestLength;
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+16) BalancedParenthesis
+Question:
+Determine if a string of brackets is balanced.
+
+Approach:
+- Use a Stack<Character>.
+- Push opening brackets; for closing, verify stack top matches.
+- At end, stack must be empty.
+
+Solution (Java):
+package com.Stack;
+
+import java.util.Stack;
+
+public class BalancedParanthesis {
+    public static boolean isBalanced(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (char ch : s.toCharArray()) {
+            if (ch == '(' || ch == '{' || ch == '[') {
+                stack.push(ch);
+            } else if (ch == ')') {
+                if (stack.isEmpty() || stack.pop() != '(') {
+                    return false;
+                }
+            } else if (ch == '}') {
+                if (stack.isEmpty() || stack.pop() != '{') {
+                    return false;
+                }
+            } else if (ch == ']') {
+                if (stack.isEmpty() || stack.pop() != '[') {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        String s = "[]({}[])";
+        if (isBalanced(s)) {
+            System.out.println("The string is balanced.");
+        } else {
+            System.out.println("The string is not balanced.");
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+17) TwoSum (indices)
+Question:
+Given an array and a target sum, print indices of two numbers that add up to target.
+
+Approach:
+- Use a HashMap<value,index> while iterating.
+- For each element, check if target - current exists in map; if yes, print indices.
+
+Solution (Java):
+package com.Problems;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class TwoSum {
+    public static void main(String[] args) {
+        int[] arr = {2,3,4,5,6,7};
+        int target = 11;
+        Map<Integer,Integer> map = new HashMap<>();
+        map.put(arr[0],0);
+        for ( int i = 1; i < arr.length; i++){
+            if (map.containsKey(target-arr[i])){
+                System.out.println(map.get(target-arr[i])+" "+i);
+            } else {
+                map.put(arr[i],i);
+            }
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+18) RotateArrayByK (left & right via reversal)
+Question:
+Rotate an array by k positions using the reversal algorithm (both left and right).
+
+Approach:
+- Left rotation: reverse first k, reverse remaining n-k, reverse full array.
+- Right rotation: reverse full array, reverse first k, reverse remaining n-k.
+- Implement a helper reverse(arr, start, end).
+
+Solution (Java):
+package com.InterviewPrep;
+
+import java.util.Arrays;
+
+public class RotateArrayByK {
+    public static void main(String[] args) {
+        int[] arr = { 1,2,3,4,5};
+        int k = 3;
+        k = k % arr.length;
+        // Left Rotation
+        reverse(arr, 0, k-1);
+        reverse(arr, k, arr.length-1);
+        System.out.println("Left Rotation: " + Arrays.toString(reverse(arr, 0, arr.length-1)));
+        // Right Rotation
+        int[] arr1 = { 1,2,3,4,5};
+        reverse(arr1, 0, arr.length-1);
+        reverse(arr1, 0, k-1);
+        System.out.println("Right Rotation: " + Arrays.toString(reverse(arr1, k, arr.length-1)));
+    }
+
+    public static int[] reverse(int[] arr, int start, int end){
+        while (start < end ){
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+        return arr;
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+19) SortZeroAndOne
+Question:
+Sort an array of 0s and 1s so that all 0s come before 1s (two-pointer).
+
+Approach:
+- Maintain two pointers start and end.
+- Swap when start is 1 and end is 0; otherwise move pointers inward appropriately.
+
+Solution (Java):
+package com.InterviewPrep;
+
+import java.util.Arrays;
+
+public class SortZeroAndOne {
+    public static void main(String[] args) {
+        int[] arr = {1,0,0,1,0,0,0};
+        int start = 0;
+        int end = arr.length-1;
+        while ( start < end ){
+           if ( arr[start] == 1 && arr[end] == 0 ){
+               int temp = arr[start];
+               arr[start] = arr[end];
+               arr[end] = temp;
+               start++;
+               end--;
+           } else if ( arr[start] == 0) {
+               start++;
+           } else if (arr[end] == 1) {
+               end--;
+           }
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+21) MaxSum (sum of two largest distinct elements)
+Question:
+Return sum of the largest and second-largest distinct elements in an array.
+
+Approach:
+- Scan once keeping track of max and second max.
+- Update second when a new max is found or when current > second and not equal to max.
+
+Solution (Java):
+package com.InterviewPrep;
+
+public class MaxSum {
+    public static void main(String[] args) {
+        int[] arr = {3,5,5,6,7,9};
+        System.out.println(maxSum(arr));
+    }
+
+    private static int maxSum(int[] arr) {
+        int maxElement = -1;
+        int minElement = -1;
+        for ( int i = 0; i < arr.length; i++ ) {
+            if ( arr[i] > maxElement ){
+                minElement = maxElement;
+                maxElement = arr[i];
+            } else if ( arr[i] != maxElement && arr[i] > minElement ) {
+                minElement = arr[i];
+            }
+        }
+        return maxElement + minElement;
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+22) MaximumConsecutive
+Question:
+Find the maximum count of consecutive identical numbers in an array.
+
+Approach:
+- Walk through array, increasing count when current equals previous.
+- On change, update max and reset count. Return max at the end.
+
+Solution (Java):
+package com.InterviewPrep;
+
+public class MaximumConsecutive {
+    public static void main(String[] args) {
+        int arr[] = { 1,0,0,0,0,1,1,1,1,1,1,0,1,0};
+        System.out.println(maximumConsecutive(arr));
+    }
+
+    private static int maximumConsecutive(int[] arr) {
+        int max_Count = 0;
+        int count = 1;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] == arr[i-1]){
+                count++;
+            } else {
+                if (count > max_Count){
+                    max_Count = count;
+                }
+                count = 1;
+            }
+        }
+        return max_Count;
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+23) Extract Alphanumeric Characters
+Question:
+From a mixed string, keep only alphanumeric characters.
+
+Approach:
+- Iterate and append characters for which Character.isDigit or Character.isAlphabetic returns true.
+
+Solution (Java):
+public static void fun1(){
+    String s = "sf$%542hhdt*(";
+    StringBuilder alpaNumeric = new StringBuilder();
+    for (int i = 0; i < s.length(); i++ ){
+        if (Character.isDigit(s.charAt(i)) || Character.isAlphabetic(s.charAt(i))){
+            alpaNumeric.append(s.charAt(i));
+        }
+    }
+    System.out.println(alpaNumeric);
+}
+
+------------------------------------------------------------------------------------------
+
+24) Run-length Style Compression
+Question:
+Compress stretches of the same character by character followed by count (basic RLE).
+
+Approach:
+- Iterate string with a count; when character changes, append char+count.
+- Append the last collected run at the end.
+
+Solution (Java):
+public class Example {
+    public static void main(String[] args) {
+        String word = "AAABBCDDAA";
+        StringBuilder result = new StringBuilder();
+        int count = 1;
+        for (int i = 1; i < word.length(); i++) {
+            if (word.charAt(i) == word.charAt(i - 1)) {
+                count++;
+            } else {
+                result.append(word.charAt(i - 1)).append(count);
+                count = 1;
+            }
+        }
+        result.append(word.charAt(word.length() - 1)).append(count);
+        System.out.println(result);
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+25) Prime Numbers Till Nth Prime
+Question:
+Print the first N prime numbers.
+
+Approach:
+- Read n, seed array with 2, then test odd numbers for primality and collect until n primes.
+- Use trial division up to sqrt(n).
+
+Solution (Java):
+import java.util.*;
+import java.util.Scanner;
+
+class PrimeNumbersTillNthPrime{
+    public static boolean isPrime(int n){
+        for(int i = 2; i * i <= n ; i++){
+            if ( n % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int count = 1;
+        int number = 3;
+        int[] arr = new int[n];
+        arr[0] = 2;
+        while(n > count){
+            if(isPrime(number)){
+                arr[count] = number;
+                count++;
+            }
+            number = number + 2;
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+}
+
+------------------------------------------------------------------------------------------
+
+26) SecondLargestElement
+Question:
+Find the second largest distinct element in an array.
+
+Approach:
+- Track first and second largest values.
+- Update appropriately when encountering larger or equal values.
+
+Solution (Java):
+public class SecondLargetElement {
+    public static int secondLargetElement(int[] arr){
+        int first = -1;
+        int second = -1;
+        for ( int i : arr){
+            if ( i > first ){
+                second = first;
+                first = i;
+            } else if ( i != first && i > second ) {
+                second = i;
+            }
+        }
+        return second;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = { 5,7,7,2,1,9,9};
+        System.out.println(secondLargetElement(arr));
+    }
+}
+
+------------------------------------------------------------------------------------------
+
