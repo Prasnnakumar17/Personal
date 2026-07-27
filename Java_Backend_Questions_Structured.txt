@@ -1,0 +1,129 @@
+JAVA BACKEND INTERVIEW QUESTIONS (STRUCTURED)
+
+================ CORE JAVA =================
+- Explain OOP principles
+- Abstract class vs Interface
+- Marker Interface
+- SOLID principles
+- JVM architecture (Heap, Stack, Metaspace)
+- Garbage Collection
+- OutOfMemoryError – causes & solutions
+- Memory leak in Java
+- String immutability
+- equals() and hashCode() contract
+
+================ COLLECTIONS =================
+- List vs Set vs Map
+- ArrayList vs LinkedList
+- HashMap vs ConcurrentHashMap
+- TreeMap vs HashMap
+- Internal working of HashMap
+- Load factor and resizing
+- Fail-fast vs Fail-safe
+- ConcurrentModificationException
+
+================ JAVA 8 =================
+- Stream API (pros & cons)
+- Functional Interface
+- Lambda Expressions
+- Optional class
+- map() vs flatMap()
+- Stream vs Parallel Stream
+- Comparable vs Comparator
+
+================ MULTITHREADING =================
+- Thread vs Runnable vs Callable
+- start() vs run()
+- Thread lifecycle
+- ExecutorService
+- synchronized vs volatile vs Lock
+- Race condition
+- Deadlock
+- Producer-Consumer problem
+- ForkJoinPool
+- CompletableFuture
+
+================ SPRING BOOT =================
+- Dependency Injection (IoC)
+- Bean lifecycle
+- Bean scopes
+- ApplicationContext vs BeanFactory
+- How Spring Boot starts internally
+- Auto-configuration
+- @SpringBootApplication annotation
+- @Component vs @Service vs @Repository
+- @Bean vs @Component
+- @Autowired vs @Qualifier
+
+================ SPRING BOOT ADVANCED =================
+- @Transactional internal working
+- Propagation types
+- Global exception handling
+- JWT authentication
+- Authentication vs Authorization
+- OAuth2 basics
+- Spring Boot Actuator
+- Caching strategies
+
+================ MICROSERVICES =================
+- Microservices vs Monolithic
+- API Gateway
+- Service Discovery
+- REST vs Messaging
+- Synchronous vs Asynchronous
+- Circuit Breaker
+- Saga Pattern
+- Idempotent APIs
+
+================ KAFKA =================
+- Kafka architecture
+- Producer, Broker, Topic
+- Partitions & ordering
+- Consumer groups
+- Offset management
+- Kafka vs RabbitMQ
+
+================ DATABASE =================
+- Types of JOINs
+- GROUP BY vs ORDER BY
+- WHERE vs HAVING
+- Indexing
+- Query optimization
+- JPA vs Hibernate
+- Lazy vs Eager loading
+- N+1 problem
+- ACID properties
+
+================ SYSTEM DESIGN =================
+- Load balancing
+- Horizontal vs Vertical scaling
+- API design principles
+- URL Shortener design
+- Notification system design
+- Payment system design
+- Caching strategies
+
+================ DEVOPS =================
+- Docker basics
+- Kubernetes basics
+- CI/CD (Jenkins)
+- Blue-Green deployment
+- AWS basics
+
+================ PRODUCTION SCENARIOS =================
+- API slow in production
+- High latency & low CPU
+- DB connection pool issues
+- Memory leaks
+- Deadlocks
+- GC pauses
+- Downstream service failures
+
+================ CODING =================
+- Two Sum
+- Reverse string
+- Find duplicates
+- Second highest element
+- First non-repeating character
+- Rotate matrix
+- Longest substring without repetition
