@@ -1,0 +1,189 @@
+JAVA LOGICAL CODING QUESTIONS:
+-------------------------------
+
+1. Palindrome Check- Write a function that checks if a given string is a palindrome.
+
+2. FizzBuzz- Write a program that prints the numbers from 1 to 100 with specific rules for multiples of 3 and 5.
+
+3. Fibonacci Sequence- Write a function that returns the nth Fibonacci number.
+
+4. Anagram Check- Write a function that checks if two given strings are anagrams of each other.
+
+5. Prime Number Check- Write a function that checks if a given number is a prime number.
+
+6. Factorial- Write a function that returns the factorial of a given number.
+
+7. Reverse String- Write a function that reverses a given string.
+
+8. Find the Missing Number- Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
+
+9. Sum of Digits- Write a function that returns the sum of the digits of a given number.
+
+10. Binary Search - Implement binary search to find the position of a target value within a sorted array.
+
+11. Longest Common Prefix- Write a function to find the longest common prefix string amongst an array of strings.
+
+12. Armstrong Number - Write a function to check if a given number is an Armstrong number.
+
+13. Remove Duplicates from Array- Write a function to remove duplicate elements from an array.
+
+14. Check Balanced Parentheses- Write a function that checks if a given string of parentheses is balanced.
+
+15. Count Vowels and Consonants- Write a function that counts the number of vowels and consonants in a given string.
+
+16. Find the Largest Element in an Array- Write a function that finds the largest element in a given array.
+
+17. Count Occurrences of a Character- Write a function that counts the occurrences of a specific character in a given string.
+
+18. Convert Decimal to Binary- Write a function that converts a given decimal number to its binary representation.
+
+19. Sum of Elements in an Array - Write a function that calculates the sum of all elements in a given array of integers using a for loop.
+
+20. Calculate Average of Array Elements - Write a function that calculates the average of all elements in a given array of integers using a for loop.
+
+21. Find Duplicates in an Array - Write a function that finds and prints all duplicate elements in a given array of integers using a for loop.
+
+22. Remove Vowels from a String - Write a function that removes all vowels from a given string using a for loop.
+
+23. Rotate Array to the Right - Write a function that rotates a given array of integers to the right by a specified number of positions using a for loop.
+
+24. Replace Spaces with Hyphens - Write a function that replaces all spaces in a given string with hyphens using a for loop.
+
+25. Find Second Largest Element in an Array - Write a function that finds the second largest element in a given array of integers using a for loop.
+
+26. Find the Frequency of Elements in an Array - Write a function that finds the frequency of each element in a given array of integers using a for loop.
+
+27. Sum of Even and Odd Elements in an Array - Write a function that calculates the sum of even and odd elements in a given array of integers using a for loop.
+
+28. Capitalize First Letter of Each Word - Write a function that capitalizes the first letter of each word in a given string using a for loop.
+
+29. Find Common Elements in Two Arrays - Write a function that finds and prints all common elements in two given arrays of integers using a for loop.
+
+30. Sort a List of Strings by Length - Write a function that sorts a given list of strings by their length.
+
+31.Design a program to display magic number, accept a number and check it is a magic number or not.
+
+32.4.Given a string, write a method to remove duplicate characters.
+
+33.Write a program to convert a given string to lowercase without using built-in methods.
+
+34.Write a program to count the number of words in a string.
+
+35.Given a number, write a program to check if it is a palindrome using java7.
+
+36.Given a string, write a program to determine if it contains only digits.
+ 
+37. Java Program to Find the Occurrence of Words in a String using HashMap.
+
+38.Write a program to check if a given element exists in an ArrayList.
+
+39. Given an ArrayList of integers, write a method to return a new list with each element squared.
+
+40.Given a list of numbers, write a method to return a list with elements in reversed order.
+
+41. To find the letters between the two given indexes of the word. 
+  - Index1 should be lesser than Index2 else print, "Index2 should be greater than Index1" and terminate the program.
+  - If Index1 is greater than the entered word length then, print "<Index1> is greater than the word length" and terminate the program.
+  - If Index2 is greater than the entered word length then, print "<Index2> is greater than the word length" and terminate the program.
+  - Index position of a word starts with 0.
+ 
+Ex: 
+Enter the word
+Environment
+ 
+Enter the two indices
+5
+10
+ 
+Sample Output 1:
+onmen
+ 
+42. Given a sentence, swap the first and last words and reverse the middle character.
+ 
+Ex:
+Enter the sentence
+ 
+Do you wear your mask
+ 
+Output: mask ruoy raew uoy Do
+ 
+43.Given a sentence and Arrange the letters in the word in alphabetical order.
+Ex:
+Enter the sentence
+ 
+the series
+ 
+Output: eht eeirss
+
+44. Write a Java program to remove a specified character from a given string.
+
+
+Original string:
+abcdefabcdeabcdaaa
+
+remove char from given string :  "a"
+
+Second string:
+bcdefbcdebcd
+
+45.Write a Java program to sort in ascending and descending order by length of the given array of strings.
+
+Original unsorted colors: [Green, White, Black, Pink, Orange, Blue, Champagne, Indigo, Ivory]
+
+Sorted color (descending order): [Champagne, Orange, Indigo, Green, White, Black, Ivory, Pink, Blue]
+
+Sorted color (ascending order): [Pink, Blue, Green, White, Black, Ivory, Orange, Indigo, Champagne]
+
+46. Write a Java program to create a new string repeating every character twice of a given string.
+
+   Sample Output:
+
+   The given string is: welcome
+   The new string is: wweellccoommee
+
+47. Given a string of even length, return the first half. So the string "WooHoo" yields "Woo".
+
+
+firstHalf("WooHoo") → "Woo"
+firstHalf("HelloThere") → "Hello"
+firstHalf("abcdef") → "abc"
+
+48.Write a java program to print the number names of the numbers
+Ex:
+Enter the number
+ 
+58723
+ 
+Output :
+ 
+five eight seven two three 
+
+49.Find All Pairs in an Array That Sum to a Specific Value
+Write a function that finds and prints all pairs of integers in an array that sum to a specific value. 
+
+50.Pawan owns a lottery ticket. He can win the lottery only if the unlucky code is not present in the ticket id.  
+ 
+Requirements:
+ 
+Number of times of unlucky code in the ticket Id decide the winner.
+If there is no unlucky code in the ticket Id, then print as "<<Ticket Id>> is lucky ticket".
+If the count of the unlucky code is less than 3, then print as "<<Ticket Id>> is partially lucky".
+If the count of the unlucky code is greater than or equal to 3, then print as "<<Ticket Id>> is unlucky ticket".
+ 
+Ex:
+Enter the ticket Id
+23453212
+ 
+Enter the unlucky code
+3
+ 
+Output: 23453212 is partially lucky
+ 
+Ex2:Enter the ticket Id
+13467542232
+ 
+Enter the unlucky code
+0
+ 
+Output: 13467542232 is lucky ticket
+

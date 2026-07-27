@@ -1,0 +1,51 @@
+1.Filter a list of strings to find all elements that contain a specific substring and then sort them in reverse order?
+2.Convert a list of integers into a map where the key is the integer and the value is its square.
+3.group a list of strings by their length and collect the result into a map.
+4.merge two lists of integers, remove duplicates, and find the average of the remaining numbers.
+5.find the second highest value in a list of integers using streams.
+6.partition a list of numbers into two groups: even and odd numbers using streams.
+7.find the longest string in a list of strings using streams.
+8. count the number of times each word appears in a list of strings.
+9.Given a String, find the first non-repeated character in it using Stream functions.
+10.Given a String, find the first repeated character in it using Stream functions.
+11.convert a list of strings to a map where key is the string and the value is its length using streams.
+12.find the sum of all prime numbers in a list of integers using streams.
+13.filter a list of Employees to find all Employees older than a certain age and collect their names into a map with key being their name and value being their age.
+14.find the maximum and minimum values in a list of integers in a single pass using streams.
+15. sort a list of Employees first by age and then by name using streams.
+16.filter a list of strings to find only those that start with a specific prefix and then concatenate them into a single string.
+17. create a comma-separated string from a list of integers using streams.
+18.filter a list of strings to find those with even lengths and then convert them to uppercase.
+19.calculate the total length of all strings in a list using streams.(the sum of length's of all the strings in the list).
+20.generate a list of the first 20 Fibonacci numbers using streams.
+21.Collect even and odd lengths of strings into maps with key being the length and value being the string and also sort them by length using stream.
+22. find the top N highest values in a list of integers.
+23.remove all elements in a list that appear more than once using streams.
+24. count the number of vowels in a string using streams.
+25. find the common elements between two lists of strings using streams.
+26.convert a list of integers to a list of strings representing their binary equivalents.
+27.calculate the product of all elements in a list of integers using streams.
+28. group a list of employees by department and then count the number of employees in each department.
+29. sort a list of strings based on their lengths and then alphabetically using streams.
+30.filter a list of Employee to find all employees with a specific last name and collect their email addresses into a list.
+31.Given a list of integers, sort all the values present in it in descending order using Stream functions.
+32.Given a List of Integers find total count, min, max, sum, and the average for numbers by using Stream api
+33.Given String str="telCo" Toggle it to str=TELcO using streams.
+34.filter a list of strings to find those that are anagrams of a given word
+35.generate a list of dates between two dates using streams.
+36.find the longest palindrome in a list of strings using streams.
+37.convert a list of integers into a list of their hexadecimal string representations.
+38.find all unique substrings of a given length in a string using streams.
+39.How do you count the frequency of each character in a string using streams
+40.calculate the sum of the squares of all even numbers in a list using streams.
+41.convert a list of dates into a map where the key is the year and the value is a list of dates in that year.
+42.From a list of employees collect the list of employees who have unique name using streams.
+43.Collect all the strings  which are palindrome from a list of strings using streams.
+44.generate a list of first 10 prime numbers using streams.
+45.From a list of employees, find the average salary of employees from each department and store them in a map (using stream API)
+46.
+
+
+
+
+
